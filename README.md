@@ -27,12 +27,21 @@ A hardened, multi-arch **Debian 13 (`trixie-slim`) runtime-installer wrapper** f
 <!-- versions:start -->
 | Component | Resolved Version |
 | --- | --- |
-| Wrapper Base OS | `Debian 13 (trixie-slim)` |
+| Wrapper Base OS | `Debian 13.8 (trixie-slim)` |
 | Smoke-Tested PMS Release (runtime-fetched) | `1.43.5.11079-b3b13e506` |
 | Proprietary Binaries in Published Image | `None (0)` |
 | Architectures | `linux/amd64, linux/arm64` |
+| Uncompressed size (per arch) | `amd64: 44.9 MB, arm64: 144.8 MB` |
 | Last verified build (UTC) | `2026-11-25` |
-| Security gate (Trivy + Grype on SBOM) | **0 fixable Critical/High** |
+| Published multi-arch digest | `dgcosenza/plex@sha256:2f0670d5ee5077db62885fae218b8fcb0f064fc4806113596af6f69d476f23b5` |
+| GHCR mirror | `ghcr.io/dgcosenza/plex@sha256:2f0670d5ee5077db62885fae218b8fcb0f064fc4806113596af6f69d476f23b5` |
+| Supply chain | Cosign OIDC signed + SPDX & CycloneDX SBOM attestations + SLSA Build L3 provenance |
+| Security gate (Trivy + Grype on SBOM) | **0 fixable Critical/High** (23 upstream-unfixed) |
+
+**Recent upstream changes:**
+- **Latest tested public PMS release:** `1.43.5.11079-b3b13e506` -> `1.43.5.11079-b3b13e506`
+- **Upstream version changed:** `no`
+- Latest official public Plex Media Server Debian x86_64 release: `1.43.5.11079-b3b13e506` (SHA-1 `a0a0b8fa92aeea65128af07b7c6cffc994ab8795`). Note: binary is downloaded and verif...
 <!-- versions:end -->
 
 ---
