@@ -1,0 +1,38 @@
+# Example deployment for dgcosenza/plex (runtime-download wrapper)
+
+services:
+  plex:
+    image: dgcosenza/plex:latest
+    container_name: plex
+    restart: unless-stopped
+    security_opt:
+      - no-new-privileges:true
+    network_mode: host
+    environment:
+      - TZ=UTC
+      - PLEX_UID=1000
+      - PLEX_GID=1000
+      - CHANGE_CONFIG_DIR_OWNERSHIP=true
+      - VERSION=public
+    volumes:
+      - ./config:/config/Library/Application Support/Plex Media Server
+      - ./tmp:/tmp
+      - ./media/Movies:/media/Movies:ro
+      - ./media/TV:/media/TV:ro
+    healthcheck:
+      test: ["CMD-SHELL", "/healthcheck.sh || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 3m
+      start_interval: 10s
+    deploy:
+      resources:
+        limits:
+          cpus: '3.00'
+          memory: 2048M
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "20m"
+        max-file: "5"

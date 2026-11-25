@@ -1,0 +1,9 @@
+{
+  "last_updated": "2026-11-24",
+  "debian_version": "13",
+  "plex_tested_version": "1.43.5.11079-b3b13e506",
+  "digest": "pending-hub-publish",
+  "trivy_fixable_critical_high": 0,
+  "grype_fixable_critical_high": 0,
+  "cves_seen": []
+}
