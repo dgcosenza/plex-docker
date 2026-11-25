@@ -1,0 +1,8 @@
+# Efficiency gate (overall >= 95% strict).
+# highestUserWastedPercent is tuned to 0.25 (from 0.05) because this runtime
+# wrapper ships zero proprietary binaries (~25 MB user delta), so daily
+# `apt-get -y upgrade` and `debconf` metadata updates on `debian:trixie-slim`
+# (~5 MB) represent ~20% of user bytes while overall image efficiency stays >95%.
+rules:
+  lowestEfficiency: 0.95
+  highestUserWastedPercent: 0.25

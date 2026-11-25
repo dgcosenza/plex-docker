@@ -4,15 +4,16 @@
 # Debian package is downloaded directly from plex.tv and SHA-1 verified at container start.
 # Maintainer: Daniel G. Cosenza from FNX Labs
 
-ARG DEBIAN_VERSION=trixie-slim
+ARG DEBIAN_BASE=debian:trixie-slim@sha256:8aa5a7bf5a1955bddbe7d74fcdd0b91ab30e74362a8b73af672b0481b35b44a0
 ARG PLEX_VERSION=1.43.5.11079-b3b13e506
 ARG IMAGE_CREATED=1970-01-01T00:00:00Z
 ARG IMAGE_REVISION=dev
 ARG IMAGE_SOURCE=https://github.com/dgcosenza/plex-docker
 
-FROM debian:${DEBIAN_VERSION} AS runtime
+FROM ${DEBIAN_BASE} AS runtime
 
-ARG DEBIAN_VERSION
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+
 ARG PLEX_VERSION
 ARG IMAGE_CREATED
 ARG IMAGE_REVISION
@@ -30,7 +31,7 @@ LABEL org.opencontainers.image.title="Plex Media Server Runtime Wrapper on Debia
       org.opencontainers.image.vendor="Daniel G. Cosenza from FNX Labs" \
       org.opencontainers.image.authors="Daniel G. Cosenza from FNX Labs" \
       org.opencontainers.image.licenses="MIT" \
-      org.opencontainers.image.base.name="docker.io/library/debian:${DEBIAN_VERSION}" \
+      org.opencontainers.image.base.name="debian:trixie-slim" \
       io.github.dgcosenza.plex.mode="runtime-download-wrapper" \
       io.github.dgcosenza.plex.tested_version="${PLEX_VERSION}"
 
@@ -47,16 +48,16 @@ RUN set -eux; \
         util-linux \
         uuid-runtime \
         xmlstarlet; \
-    rm -rf /var/lib/apt/lists/*; \
+    apt-get clean; \
+    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*; \
     \
     groupadd --gid 1000 plex; \
     useradd --uid 1000 --gid 1000 --home-dir /config --shell /usr/sbin/nologin --groups users plex; \
     mkdir -p /config /transcode /data /media /tmp; \
     chown -R 1000:1000 /config /transcode /data
 
-COPY scripts/init.sh /init
-COPY scripts/healthcheck.sh /healthcheck.sh
-RUN chmod 0755 /init /healthcheck.sh
+COPY --chmod=0755 scripts/init.sh /init
+COPY --chmod=0755 scripts/healthcheck.sh /healthcheck.sh
 
 ENV TERM="xterm" \
     LANG="C.UTF-8" \
