@@ -31,10 +31,10 @@ A hardened, multi-arch **Debian 13 (`trixie-slim`) runtime-installer wrapper** f
 | Smoke-Tested PMS Release (runtime-fetched) | `1.43.5.11079-b3b13e506` |
 | Proprietary Binaries in Published Image | `None (0)` |
 | Architectures | `linux/amd64, linux/arm64` |
-| Uncompressed size (per arch) | `amd64: 44.9 MB, arm64: 144.8 MB` |
+| Uncompressed size (per arch) | `amd64: 45.6 MB, arm64: 147.3 MB` |
 | Last verified build (UTC) | `2026-11-25` |
-| Published multi-arch digest | `dgcosenza/plex@sha256:2f0670d5ee5077db62885fae218b8fcb0f064fc4806113596af6f69d476f23b5` |
-| GHCR mirror | `ghcr.io/dgcosenza/plex@sha256:2f0670d5ee5077db62885fae218b8fcb0f064fc4806113596af6f69d476f23b5` |
+| Published multi-arch digest | `dgcosenza/plex@sha256:cfbc1416cdcc4299b44a6edb679b5289d3b617e7b6d3829449019f8eb991a752` |
+| GHCR mirror | `ghcr.io/dgcosenza/plex@sha256:cfbc1416cdcc4299b44a6edb679b5289d3b617e7b6d3829449019f8eb991a752` |
 | Supply chain | Cosign OIDC signed + SPDX & CycloneDX SBOM attestations + SLSA Build L3 provenance |
 | Security gate (Trivy + Grype on SBOM) | **0 fixable Critical/High** (23 upstream-unfixed) |
 
