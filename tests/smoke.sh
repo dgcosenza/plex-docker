@@ -10,12 +10,12 @@ set -euo pipefail
 
 IMAGE="${1:-dgcosenza/plex:ci-candidate}"
 CONTAINER_NAME="plex-smoke-$$"
-TMP_CFG="$(mktemp -d)"
-TMP_TRANS="$(mktemp -d)"
+CFG_VOL="plex-smoke-cfg-$$"
+TRANS_VOL="plex-smoke-trans-$$"
 
 cleanup() {
     docker rm -f "${CONTAINER_NAME}" >/dev/null 2>&1 || true
-    rm -rf "${TMP_CFG}" "${TMP_TRANS}"
+    docker volume rm -f "${CFG_VOL}" "${TRANS_VOL}" >/dev/null 2>&1 || true
 }
 trap cleanup EXIT
 
@@ -28,11 +28,14 @@ if docker run --rm --entrypoint test "${IMAGE}" -e "/usr/lib/plexmediaserver/Ple
 fi
 echo "OK: Image is a clean runtime wrapper with zero bundled proprietary binaries"
 
+docker volume create "${CFG_VOL}" >/dev/null
+docker volume create "${TRANS_VOL}" >/dev/null
+
 echo "Starting container to verify runtime download, SHA-1 verification, and startup..."
 docker run -d --name "${CONTAINER_NAME}" \
     --security-opt no-new-privileges:true \
-    -v "${TMP_CFG}:/config" \
-    -v "${TMP_TRANS}:/transcode" \
+    -v "${CFG_VOL}:/config" \
+    -v "${TRANS_VOL}:/transcode" \
     "${IMAGE}"
 
 echo "Waiting for Plex Media Server healthcheck (/identity)..."
