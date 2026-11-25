@@ -596,6 +596,7 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
           TAG: ${{ steps.index.outputs.date_tag }}
+          VER_SHORT: ${{ needs.resolve.outputs.plex_short_version }}
           INDEX_DIGEST: ${{ steps.index.outputs.index_digest }}
           BUNDLE_PATH: ${{ steps.attest_release.outputs.bundle-path }}
         run: |
