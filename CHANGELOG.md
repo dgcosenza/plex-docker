@@ -20,7 +20,7 @@ Maintained by **Daniel G. Cosenza from FNX Labs**.
   - **Upstream version changed:** `no`
   - Latest official public Plex Media Server Debian x86_64 release: `1.43.5.11079-b3b13e506` (SHA-1 `a0a0b8fa92aeea65128af07b7c6cffc994ab8795`). Note: binary is downloaded and verif...
 - Vulnerability gate: **0 fixable findings of any severity** in Trivy and Grype (SBOM scan) (23 upstream-unfixed).
-- Published multi-arch digest (Docker Hub + GHCR): `dgcosenza/plex@sha256:1f56dce28372ca9527263c6ef681eb8079a0c4bbd484e54518472da732e11f5a` (Cosign OIDC signed + SPDX/CycloneDX SBOM + SLSA L3 provenance).
+- Published multi-arch digest (Docker Hub + GHCR): `dgcosenza/plex@sha256:b22ec202b66ed7fbafe40536775727fe880dcdbc4252a05cc4b5da5d4a71f92f` (Cosign OIDC signed + SPDX/CycloneDX SBOM + SLSA L3 provenance).
 ---
 
 ## [1.43.5.11079] — 2026-11-25
