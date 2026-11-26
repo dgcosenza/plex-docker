@@ -36,7 +36,7 @@ A hardened, multi-arch **Debian 13 (`trixie-slim`) runtime-installer wrapper** f
 | Published multi-arch digest | `dgcosenza/plex@sha256:d34ad315632a7156eecd3e0727bef1147aa3d350732529a7c62a446739cda2cf` |
 | GHCR mirror | `ghcr.io/dgcosenza/plex@sha256:d34ad315632a7156eecd3e0727bef1147aa3d350732529a7c62a446739cda2cf` |
 | Supply chain | Cosign OIDC signed + SPDX & CycloneDX SBOM attestations + SLSA Build L3 provenance |
-| Security gate (Trivy + Grype on SBOM) | **0 fixable Critical/High** (23 upstream-unfixed) |
+| Security gate (Trivy + Grype on SBOM) | **0 fixable findings of any severity** (23 upstream-unfixed) |
 
 **Recent upstream changes:**
 - **Latest tested public PMS release:** `1.43.5.11079-b3b13e506` -> `1.43.5.11079-b3b13e506`
