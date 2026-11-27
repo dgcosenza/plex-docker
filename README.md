@@ -50,9 +50,9 @@ A hardened, multi-arch **Debian 13 (`trixie-slim`) runtime-installer wrapper** f
 | Proprietary Binaries in Published Image | `None (0)` |
 | Architectures | `linux/amd64, linux/arm64` |
 | Uncompressed size (per arch) | `amd64: 45.6 MB, arm64: 147.3 MB` |
-| Last verified build (UTC) | `2026-11-26` |
-| Published multi-arch digest | `dgcosenza/plex@sha256:fdda50534dd8b09848b9a55fe678316692c7141c86bc64fad7e7faa87363fc56` |
-| GHCR mirror | `ghcr.io/dgcosenza/plex@sha256:fdda50534dd8b09848b9a55fe678316692c7141c86bc64fad7e7faa87363fc56` |
+| Last verified build (UTC) | `2026-11-27` |
+| Published multi-arch digest | `dgcosenza/plex@sha256:fbcd2a7db36ca2d7e117c8d2b865e7d473bc87856154f650bd6fbebd9b6983f7` |
+| GHCR mirror | `ghcr.io/dgcosenza/plex@sha256:fbcd2a7db36ca2d7e117c8d2b865e7d473bc87856154f650bd6fbebd9b6983f7` |
 | Supply chain | Cosign OIDC signed + SPDX & CycloneDX SBOM attestations + SLSA Build L3 provenance |
 | Security gate (Trivy + Grype on SBOM) | **0 fixable findings of any severity** (23 upstream-unfixed) |
 
